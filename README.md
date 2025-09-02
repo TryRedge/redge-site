@@ -1,4 +1,4 @@
-# redge-site
+# Redge
 
 Official website for **Redge** — AI-powered motorcycle telemetry platform.
 
