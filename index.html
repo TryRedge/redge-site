@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Redge — AI‑powered telemetry & coaching for riders & drivers</title>
-  <meta name="description" content="Redge turns your vehicle’s OBD‑II data into real‑time insights and post‑session coaching. Motorcycle‑first today, car support next." />
+  <title>Redge — AI telemetry & coaching for cars & motorcycles</title>
+  <meta name=\"description\" content=\"Redge turns your car or motorcycle’s OBD‑II data into real‑time AI insights and post‑session coaching. iOS first, Android next.\" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light">
-  <meta property="og:title" content="Redge — AI‑powered telemetry & coaching for riders & drivers" />
-  <meta property="og:description" content="Plug your OBD‑II, ride or drive, and get coaching. Real‑time metrics, cornering/line analysis, warm‑up discipline, and goals. Motorcycle‑first; cars next." />
+  <meta property="og:title\" content=\"Redge — AI telemetry & coaching for cars & motorcycles\" />
+  <meta property="og:description\" content=\"Plug your OBD‑II, ride or drive, and get AI coaching. Real‑time metrics, cornering/line analysis, warm‑up discipline, and goals. Works for both cars and motorcycles.\" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tryredge.com/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffffff'/%3E%3Cpath fill='%230d63ff' d='M14 45l7.9-22.9A6 6 0 0 1 27.6 18h21.8c1.1 0 2 .9 2 2v4.2c0 1.1-.9 2-2 2H31.7l-2.2 6.5h16c1.1 0 2 .9 2 2v4.1c0 1.1-.9 2-2 2H27.3L23.8 46H16a2 2 0 0 1-2-2z'/%3E%3C/svg%3E" />
@@ -101,15 +101,15 @@
   <main id="top" class="container">
     <section class="hero">
       <div>
-        <span class="badge">iOS first · Android next · Motorcycle first · Car next</span>
-        <h1>Ride & drive smarter.<br/> Real‑time telemetry. Post‑session coaching.</h1>
-        <p class="lead">Redge turns your vehicle’s OBD‑II and sensor data into actionable feedback: cornering lines, acceleration smoothness, warm‑up discipline, and efficiency. <strong>Motorcycle‑first today; car support next.</strong></p>
+        <span class=\"badge\">iOS first · Android next · Cars & Motorcycles</span>
+        <h1>AI telemetry & coaching<br/>for cars and motorcycles.</h1>
+        <p class=\"lead\">Redge turns your car or motorcycle’s OBD‑II and sensor data into <strong>AI‑driven, actionable feedback</strong>: cornering lines, acceleration smoothness, warm‑up discipline, and efficiency. Built for the road, not for fluff.</p>
         <div class="cta-row">
           <a class="button primary" id="ctaJoin" href="#join">Join the waitlist</a>
           <a class="button" href="mailto:hello@tryredge.com?subject=Partnership%20%2F%20Press&body=Hi%20Redge%2C%20">Contact</a>
         </div>
         <div class="hero-card" style="margin-top:18px;font-size:14px;color:var(--muted);display:inline-flex;gap:10px;align-items:center">
-          <span class="icon" aria-hidden="true">🔒</span>
+          <span class="icon" aria-hidden="true"><span class=\"ic\">PR</span></span>
           <span>Privacy‑first. Your rides are yours. Export anytime.</span>
         </div>
       </div>
@@ -131,17 +131,17 @@
       <p class="muted">Designed for real riders & drivers. Everything is fast, local, and legible.</p>
       <div class="grid" style="margin-top:16px">
         <article class="card">
-          <div class="icon">📡</div>
+          <div class=\"icon\"><span class=\"ic\">OBD<\/span><\/div>
           <h3>Plug & Ride/Drive</h3>
           <p class="muted">BLE OBD‑II support out of the box. Auto‑reconnect, safe session handling, offline logging, and crash‑proof saves.</p>
         </article>
         <article class="card">
-          <div class="icon">🧠</div>
+          <div class=\"icon\"><span class=\"ic\">AI<\/span><\/div>
           <h3>Coaching that matters</h3>
           <p class="muted">Corner analysis, warm‑up discipline, acceleration smoothness, and goals with progressive badges. No gimmicks.</p>
         </article>
         <article class="card">
-          <div class="icon">↗️</div>
+          <div class=\"icon\"><span class=\"ic\">DATA<\/span><\/div>
           <h3>Own your data</h3>
           <p class="muted">On‑device processing whenever possible. Export JSON/CSV/GPX for deep dives or to share with friends.</p>
         </article>
@@ -164,7 +164,7 @@
         <div class="qa"><strong>Which adapters?</strong><br><span class="muted">Any quality BLE OBD‑II that speaks ELM327/PIDs cleanly. We’ll publish a tested list before launch.</span></div>
         <div class="qa"><strong>Platforms?</strong><br><span class="muted">iOS first (Swift/SwiftUI). Android next.</span></div>
         <div class="qa"><strong>Battery impact?</strong><br><span class="muted">We pause sampling when the vehicle stops and keep reconnects efficient.</span></div>
-        <div class="qa"><strong>Cars?</strong><br><span class="muted">Motorcycle‑first today. Car support is on our roadmap — join the waitlist and choose “Car” for early access.</span></div>
+        <div class=\"qa\"><strong>Which vehicles?<\/strong><br><span class=\"muted\">Works with both cars and motorcycles out of the box.<\/span><\/div>
       </div>
     </section>
 
@@ -173,14 +173,7 @@
         <span class="badge">Early riders & drivers</span>
         <h2>Join the waitlist</h2>
         <p class="muted">Want TestFlight access and early badges? Drop your email — we’ll invite batches as we scale.</p>
-        <form id="wlForm" onsubmit="return handleJoin(event)" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:680px;width:100%">
-          <input required type="email" name="email" placeholder="you@example.com" aria-label="Email" autocomplete="email" class="input" />
-          <select name="vehicle" aria-label="Vehicle" class="input" style="max-width:180px">
-            <option>Motorcycle</option>
-            <option>Car</option>
-          </select>
-          <button class="button primary" type="submit">Request access</button>
-        </form>
+        <form id=\"wlForm\" onsubmit=\"return handleJoin(event)\" style=\"display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:680px;width:100%\">\n          <input required type=\"email\" name=\"email\" placeholder=\"you@example.com\" aria-label=\"Email\" autocomplete=\"email\" class=\"input\" />\n          <button class=\"button primary\" type=\"submit\">Request access<\/button>\n        <\/form>
         <p id="thanks" class="success">Thanks — your email app should open now. If it didn’t, write us at <a href="mailto:hello@tryredge.com">hello@tryredge.com</a>.</p>
         <noscript><p class="hint">JavaScript is disabled. Email us at <a href="mailto:hello@tryredge.com?subject=Redge%20Waitlist">hello@tryredge.com</a> with subject “Redge Waitlist”.</p></noscript>
       </div>
@@ -211,25 +204,7 @@
     })
 
     // Waitlist -> uses mailto (no backend needed).
-    function handleJoin(e){
-      e.preventDefault();
-      const email = e.target.email.value.trim();
-      const vehicle = (e.target.vehicle?.value || 'Motorcycle');
-      if(!email){return false;}
-      const subject = encodeURIComponent('Redge Waitlist');
-      const lines = [
-        `Email: ${email}`,
-        `Vehicle: ${vehicle}`,
-        `From: ${location.href}`,
-        '— Add me to TestFlight / early access.'
-      ];
-      const body = encodeURIComponent(lines.join('\n'));
-      window.location.href = `mailto:hello@tryredge.com?subject=${subject}&body=${body}`;
-      document.getElementById('thanks').style.display='block';
-      e.target.reset();
-      return false;
-    }
-
+    function handleJoin(e){\n      e.preventDefault();\n      const email = e.target.email.value.trim();\n      if(!email){return false;}\n      const subject = encodeURIComponent('Redge Waitlist');\n      const lines = [\n        `Email: ${email}`,\n        `From: ${location.href}`,\n        '— Add me to TestFlight / early access.'\n      ];\n      const body = encodeURIComponent(lines.join('\\n'));\n      window.location.href = `mailto:hello@tryredge.com?subject=${subject}&body=${body}`;\n      document.getElementById('thanks').style.display='block';\n      e.target.reset();\n      return false;\n    }\n
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
