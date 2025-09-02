@@ -1,9 +1,235 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Redge — AI-powered motorcycle telemetry</title>
-<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif;margin:0;background:#0b0d12;color:#e6e9ef}.wrap{max-width:960px;margin:8vh auto;padding:24px}.badge{display:inline-block;padding:6px 10px;border:1px solid #2b303b;border-radius:999px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;opacity:.8}h1{font-size:44px;line-height:1.1;margin:.6em 0}p{color:#b4bac6;font-size:18px;max-width:60ch}.cta{margin-top:28px;display:inline-block;padding:12px 18px;border-radius:10px;border:1px solid #3a4150}a{color:inherit;text-decoration:none}</style>
-<div class="wrap">
-  <span class="badge">TryRedge.com</span>
-  <h1>Redge</h1>
-  <p>AI-powered motorcycle telemetry & coaching. iOS first. Android next.</p>
-  <a class="cta" href="mailto:hello@tryredge.com">Contact</a>
-</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redge — AI‑powered motorcycle telemetry & coaching</title>
+  <meta name="description" content="Redge turns your motorcycle’s OBD‑II data into real‑time insights and post‑ride coaching. iOS first. Android next." />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta name="color-scheme" content="dark light">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Redge — AI‑powered motorcycle telemetry & coaching" />
+  <meta property="og:description" content="Plug your OBD‑II, ride, and get coaching. Real‑time metrics, cornering analysis, warm‑up discipline, and goals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tryredge.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs/%3E%3Crect width='64' height='64' rx='14' fill='%230b0d12'/%3E%3Cpath fill='%23a7b0c2' d='M14 45l7.9-22.9A6 6 0 0 1 27.6 18h21.8c1.1 0 2 .9 2 2v4.2c0 1.1-.9 2-2 2H31.7l-2.2 6.5h16c1.1 0 2 .9 2 2v4.1c0 1.1-.9 2-2 2H27.3L23.8 46H16a2 2 0 0 1-2-2z'/%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg:#0b0d12;--text:#e6e9ef;--muted:#b4bac6;--line:#2b303b;--brand:#6fb1ff;--accent:#7ef3cf;
+      --card:#0f1219;--card-2: #111522;--shadow: 0 10px 40px rgba(0,0,0,.35);
+      --radius:18px;--radius-sm:12px;--max:1080px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:
+      radial-gradient(1200px 600px at 10% -10%,rgba(111,177,255,.12),transparent 60%),
+      radial-gradient(700px 500px at 120% 10%,rgba(126,243,207,.10),transparent 60%),
+      linear-gradient(180deg, #0b0d12 0%, #0b0d12 100%);
+      color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(10px);background:color-mix(in srgb, var(--bg) 88%, transparent)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid color-mix(in srgb, var(--line), transparent 35%)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.3px}
+    .logo{width:28px;height:28px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(145deg,#1a2232,#0e1220);box-shadow:inset 0 1px 0 rgba(255,255,255,.04), var(--shadow)}
+    .logo svg{width:18px;height:18px;opacity:.92}
+    .navlinks{display:flex;gap:18px;align-items:center}
+    .nav a{opacity:.85}
+    .nav a:hover{opacity:1}
+    .button{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);border-radius:12px}
+    .button.primary{border-color:transparent;background:linear-gradient(135deg,var(--brand),#4f8dff);color:#06122b;font-weight:700}
+
+    /* Hero */
+    .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);opacity:.9}
+    h1{font-size: clamp(36px, 6vw, 56px);line-height:1.05;margin:16px 0}
+    .lead{color:var(--muted);font-size: clamp(16px, 2.1vw, 20px);max-width:58ch}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .hero-card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:linear-gradient(180deg,var(--card),var(--card-2));box-shadow:var(--shadow)}
+    .phone{aspect-ratio:9/19;border-radius:32px;border:1px solid #253048;background:linear-gradient(160deg,#0f1624,#0b101a);position:relative;overflow:hidden}
+    .phone .ui{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:10px}
+    .pill{display:flex;justify-content:space-between;align-items:center;border:1px solid #2d3646;border-radius:12px;padding:10px 12px}
+    .metric{font-variant-numeric:tabular-nums}
+
+    /* Sections */
+    section{padding:56px 0;border-top:1px solid color-mix(in srgb, var(--line), transparent 35%)}
+    h2{font-size: clamp(26px, 4.5vw, 36px);margin:0 0 14px}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{border:1px solid var(--line);border-radius:16px;padding:18px;background:linear-gradient(180deg,var(--card),var(--card-2));box-shadow:var(--shadow)}
+    .card h3{margin:4px 0 6px;font-size:18px}
+    .icon{width:18px;height:18px;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{border:1px dashed #2a3344;border-radius:14px;padding:16px}
+
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .qa{border:1px solid var(--line);border-radius:14px;padding:16px;background:linear-gradient(180deg,var(--card),var(--card-2))}
+
+    .cta{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:34px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,var(--card),var(--card-2));box-shadow:var(--shadow)}
+
+    footer{padding:40px 0;color:var(--muted);font-size:14px}
+    footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+    /* Mobile */
+    @media (max-width: 880px){
+      .hero{grid-template-columns:1fr;gap:22px;padding-top:48px}
+      .grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .faq{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Redge">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18l3.4-9.8A4 4 0 0 1 11.2 6H20v3.2h-8l-1.2 3.5H18V16h-8.8L7.6 18H4z" fill="#A7B0C2"/></svg>
+        </span>
+        <span>Redge</span>
+      </a>
+      <nav class="navlinks">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a class="button" href="#contact">Contact</a>
+        <a class="button primary" id="wl" href="#join">Join waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <span class="badge">iOS first · Android next</span>
+        <h1>Ride smarter.<br/> Real‑time telemetry. Post‑ride coaching.</h1>
+        <p class="lead">Redge turns your motorcycle’s OBD‑II and sensor data into actionable feedback: cornering lines, acceleration smoothness, warm‑up discipline, and fuel efficiency. No fluff — just numbers that make you better.</p>
+        <div class="cta-row">
+          <a class="button primary" id="ctaJoin" href="#join">Join the waitlist</a>
+          <a class="button" href="mailto:hello@tryredge.com?subject=Partnership%20%2F%20Press&body=Hi%20Redge%2C%20">
+            Contact
+          </a>
+        </div>
+        <div class="hero-card" style="margin-top:18px;font-size:14px;color:var(--muted);display:inline-flex;gap:10px;align-items:center">
+          <span class="icon" aria-hidden="true">⚡</span>
+          <span>Privacy‑first. Your rides are yours. Export anytime.</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="phone" aria-hidden="true">
+          <div class="ui">
+            <div class="pill"><span>Live RPM</span><strong class="metric">3,950</strong></div>
+            <div class="pill"><span>Coolant</span><strong class="metric">78 °C</strong></div>
+            <div class="pill"><span>Lean score</span><strong class="metric">A‑</strong></div>
+            <div class="pill"><span>Smooth accel</span><strong class="metric">92%</strong></div>
+            <div class="pill"><span>Eco streak</span><strong class="metric">5 rides</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>What you get</h2>
+      <p class="muted">Designed for real riders. Built by obsessives. Everything is fast, local, and legible.</p>
+      <div class="grid" style="margin-top:16px">
+        <article class="card">
+          <div class="icon">📡</div>
+          <h3>Plug & Ride</h3>
+          <p class="muted">BLE OBD‑II support out of the box. Auto‑reconnect, safe session handling, offline logging, and crash‑proof saves.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧠</div>
+          <h3>Coaching that matters</h3>
+          <p class="muted">Corner entry/exit analysis, warm‑up discipline, acceleration smoothness, and goals with progressive badges. No gimmicks.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🔒</div>
+          <h3>Privacy‑first</h3>
+          <p class="muted">On‑device processing whenever possible. You own the data. Export JSON/CSV/GPX for deep dives or to share with friends.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2>How it works</h2>
+      <div class="steps" style="margin-top:10px">
+        <div class="step"><strong>1. Connect</strong><br><span class="muted">Pair your BLE OBD‑II adapter and select your bike.</span></div>
+        <div class="step"><strong>2. Ride</strong><br><span class="muted">We capture clean telemetry: RPM, temps, throttle, speed, and more.</span></div>
+        <div class="step"><strong>3. Review</strong><br><span class="muted">Get clear post‑ride insights and scores. Find exactly what to improve.</span></div>
+        <div class="step"><strong>4. Improve</strong><br><span class="muted">Set goals, earn badges, track progress. Become a smoother, safer rider.</span></div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>FAQ</h2>
+      <div class="faq" style="margin-top:10px">
+        <div class="qa"><strong>Which adapters?</strong><br><span class="muted">Any quality BLE OBD‑II that speaks ELM327/PIDs cleanly. We’ll publish a tested list before launch.</span></div>
+        <div class="qa"><strong>Platforms?</strong><br><span class="muted">iOS first (Swift/SwiftUI). Android next.</span></div>
+        <div class="qa"><strong>Will it drain my battery?</strong><br><span class="muted">We use aggressive reconnects and pause sampling when the bike stops. You’re in control.</span></div>
+        <div class="qa"><strong>Data ownership?</strong><br><span class="muted">Your rides are yours. Delete or export anytime.</span></div>
+      </div>
+    </section>
+
+    <section id="join">
+      <div class="cta">
+        <span class="badge">Early riders</span>
+        <h2>Join the waitlist</h2>
+        <p class="muted">Want TestFlight access and early badges? Drop your email — we’ll invite batches as we scale.</p>
+        <form id="wlForm" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:640px;width:100%" onsubmit="return handleJoin(event)">
+          <input required type="email" name="email" placeholder="you@example.com" aria-label="Email" style="flex:1;min-width:220px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0c111a;color:var(--text)" />
+          <button class="button primary" type="submit">Request access</button>
+        </form>
+        <small class="muted">No spam. We’ll only email you about Redge.</small>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="card" style="display:flex;gap:16px;align-items:center;justify-content:space-between">
+        <div>
+          <h3 style="margin:0 0 6px">Press, partnerships, or questions?</h3>
+          <div class="muted">Write us at <a href="mailto:hello@tryredge.com">hello@tryredge.com</a></div>
+        </div>
+        <a class="button" href="mailto:hello@tryredge.com?subject=Hello%20Redge&body=Hi%2C%20I%27m%20interested%20in%20Redge.%20">
+          Email us →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container row">
+      <div>© <span id="year"></span> Redge. All rights reserved.</div>
+      <div>Made for riders who want numbers, not noise.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for in‑page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}})
+    })
+
+    // Waitlist handler: opens a prefilled mailto if you don’t have a backend yet
+    function handleJoin(e){
+      e.preventDefault();
+      const email=e.target.email.value.trim();
+      if(!email) return false;
+      const subject = encodeURIComponent('Redge Waitlist');
+      const body = encodeURIComponent(`Email: ${email}\nFrom: ${location.href}\n— Add me to TestFlight / early access.`);
+      window.location.href = `mailto:hello@tryredge.com?subject=${subject}&body=${body}`;
+      e.target.reset();
+      return false;
+    }
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
