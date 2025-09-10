@@ -123,6 +123,10 @@
       outline:2px solid var(--brand);
       outline-offset:2px;
     }
+  
+    /* --- Overrides to prevent oversized screenshots inside .mock --- */
+    .mock{ height: clamp(280px, 42vw, 420px); display:flex; align-items:center; justify-content:center; }
+    .mock img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:18px; }
   </style>
 </head>
 <body>
@@ -212,17 +216,12 @@
             <li>Aliquet magna nec dignissim velit nibh.</li>
           </ul>
         </div>
-        <div class="mock" aria-label="App screenshot (right)">
-  <img class="shot" src="foto1.png" alt="Telemetry screen">
-</div>
+        <div class="mock" aria-label="App screenshot placeholder (right)"><div class="phone-mini">Screenshot</div></div>
       </article>
 
       <!-- 2) Screenshot LEFT, copy RIGHT -->
       <article class="feature">
-        <div class="mock" aria-label="App screenshot (right)">
-  <img class="shot" src="foto1.png" alt="Telemetry screen">
-</div>
-
+        <div class="mock" aria-label="App screenshot placeholder (left)"><div class="phone-mini">Screenshot</div></div>
         <div class="copy">
           <h3>Post‑Session Coaching</h3>
           <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, tortor non hendrerit laoreet, libero nibh luctus libero, a ultrices arcu arcu id lorem. Etiam consequat sem ut ante efficitur tristique. Donec quis erat lectus. Sed lacinia tristique viverra.</p>
@@ -245,9 +244,7 @@
             <li>Integer iaculis urna sed lorem facilisis.</li>
           </ul>
         </div>
-        <div class="mock" aria-label="App screenshot (right)">
-  <img class="shot" src="foto1.png" alt="Telemetry screen">
-</div>
+        <div class="mock" aria-label="App screenshot placeholder (right)"><div class="phone-mini">Screenshot</div></div>
       </article>
     </div>
   </section>
