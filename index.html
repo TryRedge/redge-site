@@ -5,118 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redge — AI telemetry & coaching for cars & motorcycles</title>
   <meta name="description" content="Redge turns your car or motorcycle's OBD‑II data into real‑time AI insights and post‑session coaching. iOS first, Android next." />
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="color-scheme" content="light">
   <meta property="og:title" content="Redge — AI telemetry & coaching for cars & motorcycles" />
   <meta property="og:description" content="Plug your OBD‑II, ride or drive, and get AI coaching. Real‑time metrics, cornering/line analysis, warm‑up discipline, and goals. Works for both cars and motorcycles." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tryredge.com/" />
+  <meta name="theme-color" content="#0d63ff" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffffff'/%3E%3Cpath fill='%230d63ff' d='M14 45l7.9-22.9A6 6 0 0 1 27.6 18h21.8c1.1 0 2 .9 2 2v4.2c0 1.1-.9 2-2 2H31.7l-2.2 6.5h16c1.1 0 2 .9 2 2v4.1c0 1.1-.9 2-2 2H27.3L23.8 46H16a2 2 0 0 1-2-2z'/%3E%3C/svg%3E" />
   <style>
     :root{
-      --bg:#f7f9fc; --text:#0b1220; --muted:#55627a; --line:#e6e9f2; --brand:#0d63ff; --accent:#16a34a; --card:#ffffff; --shadow:0 10px 30px rgba(17, 24, 39, .08); --max:1100px; --radius:16px;
+      --bg:#0a0f1a; --surface:#0d1320; --card:#0f1626; --text:#e7eefc; --muted:#93a3c5; --line:#1e2a44; --brand:#0d63ff; --brand-2:#5ab1ff; --accent:#16a34a; --radius:16px; --shadow:0 15px 50px rgba(0,0,0,.25); --max:1140px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;background:var(--bg);color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    body{margin:0;background:radial-gradient(1200px 500px at 10% -10%, rgba(13,99,255,.18), transparent), radial-gradient(900px 400px at 90% 10%, rgba(90,177,255,.17), transparent), var(--bg);color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max);margin:0 auto;padding:24px}
 
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+    header{position:sticky;top:0;z-index:50;background:rgba(13,19,32,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
-    .logo{width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:#ecf2ff;border:1px solid #dbe7ff}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .logo{width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(135deg,#0d63ff,#5ab1ff);border:1px solid #2a4fa6;box-shadow:0 0 0 4px rgba(13,99,255,.15)}
     .logo svg{width:18px;height:18px}
     .navlinks{display:flex;gap:18px;align-items:center}
-    .button{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);background:#fff;transition:all 0.2s ease;cursor:pointer}
-    .button:hover{transform:translateY(-1px);box-shadow:0 12px 35px rgba(17, 24, 39, .12)}
-    .button.primary{border-color:#0047ff;background:linear-gradient(135deg,#0d63ff,#3f85ff);color:#fff;font-weight:700}
-    .button.primary:hover{background:linear-gradient(135deg,#0047ff,#2f75ff)}
+    .button{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);background:linear-gradient(180deg,#121a2a,#0f1626);transition:all 0.2s ease;cursor:pointer}
+    .button:hover{transform:translateY(-1px);box-shadow:0 20px 60px rgba(13,99,255,.25)}
+    .button.primary{border-color:#2156ff;background:linear-gradient(135deg,#0d63ff,#3f85ff);color:#fff;font-weight:800}
+    .button.primary:hover{background:linear-gradient(135deg,#0a53d7,#2f75ff)}
 
     /* Mobile menu */
-    .mobile-menu-btn{display:none;background:none;border:none;padding:8px;border-radius:8px;cursor:pointer}
-    .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:white;border:1px solid var(--line);border-radius:12px;margin:8px;box-shadow:var(--shadow)}
+    .mobile-menu-btn{display:none;background:none;border:1px solid var(--line);padding:8px;border-radius:8px;cursor:pointer}
+    .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:8px;box-shadow:var(--shadow)}
     .mobile-menu.open{display:block}
     .mobile-menu .navlinks{flex-direction:column;padding:16px;gap:12px}
 
     /* Hero */
-    .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}
-    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#2a3b55;background:#fff;animation:fadeInUp 0.6s ease-out}
-    h1{font-size: clamp(36px, 6vw, 56px);line-height:1.05;margin:16px 0;animation:fadeInUp 0.6s ease-out 0.1s both}
-    .lead{color:var(--muted);font-size: clamp(16px, 2.1vw, 20px);max-width:58ch;animation:fadeInUp 0.6s ease-out 0.2s both}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;animation:fadeInUp 0.6s ease-out 0.3s both}
-    .hero-card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:var(--card);box-shadow:var(--shadow);animation:fadeInUp 0.6s ease-out 0.4s both}
-    .phone{aspect-ratio:9/19;border-radius:30px;border:1px solid var(--line);background:linear-gradient(160deg,#f3f6ff,#ffffff);position:relative;overflow:hidden}
+    .hero{padding:86px 0 50px;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#cde0ff;background:rgba(13,99,255,.08)}
+    h1{font-size: clamp(38px, 6.2vw, 62px);line-height:1.05;margin:16px 0}
+    .lead{color:var(--muted);font-size: clamp(16px, 2.1vw, 20px);max-width:64ch}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+
+    .hero-card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:linear-gradient(180deg,#111a2c,#0f1626);box-shadow:var(--shadow)}
+
+    /* Mock phone */
+    .phone{aspect-ratio:9/19;border-radius:30px;border:1px solid #27407d;background:linear-gradient(160deg,#0f1a33,#0b1222);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(4,12,24,.6)}
     .phone .ui{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:10px}
-    .pill{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;transition:transform 0.2s ease}
-    .pill:hover{transform:scale(1.02)}
-    .metric{font-variant-numeric:tabular-nums;color:var(--brand);font-weight:600}
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
+    .pill{display:flex;justify-content:space-between;align-items:center;border:1px solid #22325c;border-radius:12px;padding:10px 12px;background:rgba(255,255,255,.03)}
+    .metric{font-variant-numeric:tabular-nums;color:#70b0ff;font-weight:700}
 
     /* Sections */
-    section{padding:56px 0;border-top:1px solid var(--line)}
-    h2{font-size: clamp(26px, 4.5vw, 36px);margin:0 0 12px}
+    section{padding:64px 0;border-top:1px solid var(--line)}
+    h2{font-size: clamp(28px, 4.5vw, 38px);margin:0 0 12px}
     .muted{color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);box-shadow:var(--shadow);transition:all 0.3s ease}
-    .card:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(17, 24, 39, .12)}
-    .card h3{margin:4px 0 6px;font-size:18px}
-    .icon{width:32px;height:32px;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;background:#fff;font-size:10px;font-weight:700;color:var(--brand)}
 
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .step{border:1px dashed #c9d4ea;border-radius:14px;padding:16px;background:#fff;transition:all 0.3s ease;position:relative}
-    .step:hover{border-style:solid;border-color:var(--brand);transform:translateY(-2px)}
-    .step strong{color:var(--brand)}
+    /* Alternating features */
+    .features{display:grid;gap:28px}
+    .feature{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:22px;background:linear-gradient(180deg,#0f1728,#0d1424)}
+    .feature .copy{display:flex;flex-direction:column;gap:10px}
+    .feature h3{margin:0;font-size:24px}
+    .mock{border:1px solid #2a3b68;border-radius:18px;background:linear-gradient(135deg, rgba(13,99,255,.12), rgba(90,177,255,.06));height:420px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .mock:before{content:"";position:absolute;inset:0;background-image:linear-gradient(transparent 0 70%, rgba(13,99,255,.08)), repeating-linear-gradient( to bottom, rgba(255,255,255,.04), rgba(255,255,255,.04) 1px, transparent 1px, transparent 24px );opacity:.7}
+    .mock .phone-mini{width:260px;aspect-ratio:9/19;border-radius:22px;border:1px solid #2b4aa8;background:linear-gradient(160deg,#0b1630,#0c1422);box-shadow:0 10px 30px rgba(13,99,255,.24);display:flex;align-items:center;justify-content:center}
 
-    .faq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .qa{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;transition:all 0.3s ease}
-    .qa:hover{border-color:var(--brand);transform:translateY(-1px)}
+    /* FAQ */
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+    details{border:1px solid var(--line);border-radius:14px;padding:14px;background:linear-gradient(180deg,#10192b,#0f1626)}
+    details[open]{box-shadow:0 12px 35px rgba(13,99,255,.2)}
+    summary{cursor:pointer;font-weight:700}
 
-    .cta{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:34px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
-
-    footer{padding:40px 0;color:#6b7486;font-size:14px}
-    footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-    /* Form */
-    input,select,button{outline:none}
-    .input{flex:1;min-width:220px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--text);transition:border-color 0.2s ease}
+    /* Waitlist */
+    .cta{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:34px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,#101a2c,#0f1626);box-shadow:var(--shadow)}
+    input,button{outline:none}
+    .input{flex:1;min-width:240px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0c1322;color:var(--text);transition:border-color 0.2s ease}
     .input:focus{border-color:var(--brand)}
-    .hint{font-size:12px;color:#6b7486}
-    .success{margin-top:10px;color:#0a7a2b;display:none;animation:fadeInUp 0.3s ease}
-    .error{margin-top:10px;color:#dc2626;display:none}
+    .success{margin-top:10px;color:#6ee7b7;display:none}
+    .error{margin-top:10px;color:#fab5b5;display:none}
 
-    /* Loading state */
-    .loading{opacity:0.7;pointer-events:none}
-    .loading::after{content:'';display:inline-block;width:16px;height:16px;border:2px solid #fff;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;margin-left:8px}
+    /* Footer */
+    footer{padding:40px 0;color:#9fb0d1;font-size:14px}
+    footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a{border-bottom:1px dashed #3a5dbd}
 
-    @keyframes spin{
-      to{transform:rotate(360deg)}
-    }
+    /* Pages (router targets) */
+    .page{display:none;min-height:60vh}
+    .page.active{display:block}
+    .prose{max-width:880px}
+    .prose h1{font-size:42px;margin:0 0 16px}
+    .prose h2{margin-top:24px;font-size:24px}
+    .prose p, .prose li{color:#c7d5f2;line-height:1.7}
 
-    /* Mobile */
-    @media (max-width: 880px){
-      .hero{grid-template-columns:1fr;gap:22px;padding-top:48px}
-      .grid{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr 1fr}
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr;gap:22px;padding-top:56px}
+      .feature{grid-template-columns:1fr;gap:18px}
       .faq{grid-template-columns:1fr}
-      
       .navlinks{display:none}
       .mobile-menu-btn{display:block}
       .nav{position:relative}
@@ -126,7 +109,6 @@
     @media (prefers-reduced-motion: reduce) {
       *,::before,::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
     }
-
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
     /* Focus styles */
@@ -140,13 +122,13 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Redge">
+      <a class="brand" href="#home" aria-label="Redge">
         <span class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18l3.4-9.8A4 4 0 0 1 11.2 6H20v3.2h-8l-1.2 3.5H18V16h-8.8L7.6 18H4z" fill="#0d63ff"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18l3.4-9.8A4 4 0 0 1 11.2 6H20v3.2h-8l-1.2 3.5H18V16h-8.8L7.6 18H4z" fill="#fff"/></svg>
         </span>
         <span>Redge</span>
       </a>
-      
+
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -156,37 +138,40 @@
       </button>
 
       <nav class="navlinks">
-        <a href="#features">Features</a>
-        <a href="#how">How it works</a>
+        <a href="#home">Intro</a>
+        <a href="#app">App</a>
         <a href="#faq">FAQ</a>
-        <a class="button" href="#contact">Contact</a>
-        <a class="button primary" href="#join">Join waitlist</a>
+        <a href="#waitlist">Waitlist</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
       </nav>
 
       <div class="mobile-menu" id="mobileMenu">
         <nav class="navlinks">
-          <a href="#features" onclick="closeMobileMenu()">Features</a>
-          <a href="#how" onclick="closeMobileMenu()">How it works</a>
+          <a href="#home" onclick="closeMobileMenu()">Intro</a>
+          <a href="#app" onclick="closeMobileMenu()">App</a>
           <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-          <a class="button" href="#contact" onclick="closeMobileMenu()">Contact</a>
-          <a class="button primary" href="#join" onclick="closeMobileMenu()">Join waitlist</a>
+          <a href="#waitlist" onclick="closeMobileMenu()">Waitlist</a>
+          <a href="#privacy" onclick="closeMobileMenu()">Privacy</a>
+          <a href="#terms" onclick="closeMobileMenu()">Terms</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <main id="top" class="container">
+  <!-- HOME (Introduction) -->
+  <main id="home" class="container">
     <section class="hero">
       <div>
         <span class="badge">iOS first · Android next · Cars & Motorcycles</span>
         <h1>AI telemetry & coaching<br/>for cars and motorcycles.</h1>
-        <p class="lead">Redge turns your car or motorcycle's OBD‑II and sensor data into <strong>AI‑driven, actionable feedback</strong>: cornering lines, acceleration smoothness, warm‑up discipline, and efficiency. Built for the road, not for fluff.</p>
+        <p class="lead">Turn your OBD‑II and on‑device sensors into <strong>actionable coaching</strong>: corner lines, smooth acceleration, warm‑up discipline, and efficiency. Built for the road, not for fluff.</p>
         <div class="cta-row">
-          <a class="button primary" href="#join">Join the waitlist</a>
-          <a class="button" href="mailto:hello@tryredge.com?subject=Partnership%20%2F%20Press&body=Hi%20Redge%2C%20">Contact</a>
+          <a class="button primary" href="#waitlist">Join the waitlist</a>
+          <a class="button" href="#faq">Read FAQ</a>
         </div>
-        <div class="hero-card" style="margin-top:18px;font-size:14px;color:var(--muted);display:inline-flex;gap:10px;align-items:center">
-          <span class="icon" aria-hidden="true">🔒</span>
+        <div class="hero-card" style="margin-top:18px;font-size:14px;color:#bcd0f5;display:inline-flex;gap:10px;align-items:center">
+          <span aria-hidden="true">🔒</span>
           <span>Privacy‑first. Your rides are yours. Export anytime.</span>
         </div>
       </div>
@@ -202,215 +187,278 @@
         </div>
       </div>
     </section>
-
-    <section id="features">
-      <h2>What you get</h2>
-      <p class="muted">Designed for real riders & drivers. Everything is fast, local, and legible.</p>
-      <div class="grid" style="margin-top:16px">
-        <article class="card">
-          <div class="icon">OBD</div>
-          <h3>Plug & Ride/Drive</h3>
-          <p class="muted">BLE OBD‑II support out of the box. Auto‑reconnect, safe session handling, offline logging, and crash‑proof saves.</p>
-        </article>
-        <article class="card">
-          <div class="icon">AI</div>
-          <h3>Coaching that matters</h3>
-          <p class="muted">Corner analysis, warm‑up discipline, acceleration smoothness, and goals with progressive badges. No gimmicks.</p>
-        </article>
-        <article class="card">
-          <div class="icon">DATA</div>
-          <h3>Own your data</h3>
-          <p class="muted">On‑device processing whenever possible. Export JSON/CSV/GPX for deep dives or to share with friends.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="how">
-      <h2>How it works</h2>
-      <div class="steps" style="margin-top:10px">
-        <div class="step"><strong>1. Connect</strong><br><span class="muted">Pair your BLE OBD‑II adapter and select your vehicle.</span></div>
-        <div class="step"><strong>2. Ride/Drive</strong><br><span class="muted">We capture clean telemetry: RPM, temps, throttle, speed, and more.</span></div>
-        <div class="step"><strong>3. Review</strong><br><span class="muted">Get clear post‑session insights and scores. Find exactly what to improve.</span></div>
-        <div class="step"><strong>4. Improve</strong><br><span class="muted">Set goals, earn badges, track progress. Become smoother and safer.</span></div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <h2>FAQ</h2>
-      <div class="faq" style="margin-top:10px">
-        <div class="qa"><strong>Which adapters?</strong><br><span class="muted">Any quality BLE OBD‑II that speaks ELM327/PIDs cleanly. We'll publish a tested list before launch.</span></div>
-        <div class="qa"><strong>Platforms?</strong><br><span class="muted">iOS first (Swift/SwiftUI). Android next.</span></div>
-        <div class="qa"><strong>Battery impact?</strong><br><span class="muted">We pause sampling when the vehicle stops and keep reconnects efficient.</span></div>
-        <div class="qa"><strong>Which vehicles?</strong><br><span class="muted">Works with both cars and motorcycles that support OBD‑II (most vehicles 1996+).</span></div>
-        <div class="qa"><strong>Data privacy?</strong><br><span class="muted">Your data stays on your device. We don't track locations or sell data to third parties.</span></div>
-        <div class="qa"><strong>Pricing?</strong><br><span class="muted">We're exploring freemium and premium tiers. Early adopters get special pricing.</span></div>
-      </div>
-    </section>
-
-    <section id="join">
-      <div class="cta">
-        <span class="badge">Early riders & drivers</span>
-        <h2>Join the waitlist</h2>
-        <p class="muted">Want TestFlight access and early badges? Drop your email — we'll invite batches as we scale.</p>
-        <form id="wlForm" onsubmit="return handleJoin(event)" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:680px;width:100%">
-          <input required type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" class="input" />
-          <button class="button primary" type="submit">Request access</button>
-        </form>
-        <p id="thanks" class="success">Thanks! Your email app should open now. If it didn't, write us at <a href="mailto:hello@tryredge.com">hello@tryredge.com</a>.</p>
-        <p id="error" class="error">Something went wrong. Please try again or email us directly.</p>
-        <noscript><p class="hint">JavaScript is disabled. Email us at <a href="mailto:hello@tryredge.com?subject=Redge%20Waitlist">hello@tryredge.com</a> with subject "Redge Waitlist".</p></noscript>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="card" style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-        <div>
-          <h3 style="margin:0 0 6px">Press, partnerships, or questions?</h3>
-          <div class="muted">Write us at <a href="mailto:hello@tryredge.com">hello@tryredge.com</a></div>
-        </div>
-        <a class="button" href="mailto:hello@tryredge.com?subject=Hello%20Redge&body=Hi%2C%20I%27m%20interested%20in%20Redge.%20">Email us →</a>
-      </div>
-    </section>
   </main>
+
+  <!-- APP (Three alternating feature sections: R / L / R screenshots) -->
+  <section id="app" class="container">
+    <h2>Redge in action</h2>
+    <p class="muted">Three snapshots of what the app does for you. Screenshots on the right, left, then right — copy on the opposite side.</p>
+
+    <div class="features" style="margin-top:18px">
+      <!-- 1) Screenshot RIGHT, copy LEFT -->
+      <article class="feature">
+        <div class="copy">
+          <h3>Real‑time Telemetry</h3>
+          <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget elit ac lorem hendrerit euismod. Integer efficitur, nibh vitae sagittis luctus, lectus dolor aliquet magna, nec dignissim velit nibh quis urna. Cras a justo urna. Pellentesque habitant morbi tristique senectus et netus.</p>
+          <ul class="muted" style="margin:0 0 0 18px">
+            <li>Lorem ipsum dolor sit amet, consectetur.</li>
+            <li>Integer efficitur nibh vitae sagittis luctus.</li>
+            <li>Aliquet magna nec dignissim velit nibh.</li>
+          </ul>
+        </div>
+        <div class="mock" aria-label="App screenshot placeholder (right)"><div class="phone-mini">Screenshot</div></div>
+      </article>
+
+      <!-- 2) Screenshot LEFT, copy RIGHT -->
+      <article class="feature">
+        <div class="mock" aria-label="App screenshot placeholder (left)"><div class="phone-mini">Screenshot</div></div>
+        <div class="copy">
+          <h3>Post‑Session Coaching</h3>
+          <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, tortor non hendrerit laoreet, libero nibh luctus libero, a ultrices arcu arcu id lorem. Etiam consequat sem ut ante efficitur tristique. Donec quis erat lectus. Sed lacinia tristique viverra.</p>
+          <ul class="muted" style="margin:0 0 0 18px">
+            <li>Nunc commodo, quam id dignissim pretium.</li>
+            <li>Curabitur lacinia, velit non tempor porttitor.</li>
+            <li>Praesent porta nisl id magna aliquam.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 3) Screenshot RIGHT, copy LEFT -->
+      <article class="feature">
+        <div class="copy">
+          <h3>Goals & Badges</h3>
+          <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus gravida tortor, nec ultricies magna maximus nec. In hac habitasse platea dictumst. Curabitur pellentesque sem a purus ultrices, non maximus urna semper.</p>
+          <ul class="muted" style="margin:0 0 0 18px">
+            <li>Fusce nec risus vitae velit ultricies dictum.</li>
+            <li>Morbi quis augue id sapien faucibus feugiat.</li>
+            <li>Integer iaculis urna sed lorem facilisis.</li>
+          </ul>
+        </div>
+        <div class="mock" aria-label="App screenshot placeholder (right)"><div class="phone-mini">Screenshot</div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="container">
+    <h2>FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Which adapters?</summary>
+        <div class="muted">Any quality BLE OBD‑II that speaks ELM327/PIDs cleanly. We'll publish a tested list before launch.</div>
+      </details>
+      <details>
+        <summary>Platforms?</summary>
+        <div class="muted">iOS first (Swift/SwiftUI). Android next.</div>
+      </details>
+      <details>
+        <summary>Battery impact?</summary>
+        <div class="muted">We pause sampling when the vehicle stops and keep reconnects efficient.</div>
+      </details>
+      <details>
+        <summary>Which vehicles?</summary>
+        <div class="muted">Works with both cars and motorcycles that support OBD‑II (most vehicles 1996+).</div>
+      </details>
+      <details>
+        <summary>Data privacy?</summary>
+        <div class="muted">Your data stays on your device. We don't track locations or sell data to third parties.</div>
+      </details>
+      <details>
+        <summary>Pricing?</summary>
+        <div class="muted">We're exploring freemium and premium tiers. Early adopters get special pricing.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section id="waitlist" class="container">
+    <div class="cta">
+      <span class="badge">Early riders & drivers</span>
+      <h2>Join the waitlist</h2>
+      <p class="muted">Want TestFlight access and early badges? Drop your email — we'll invite batches as we scale.</p>
+      <form id="wlForm" onsubmit="return handleJoin(event)" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:680px;width:100%">
+        <input required type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" class="input" />
+        <button class="button primary" type="submit">Request access</button>
+      </form>
+      <p id="thanks" class="success">Thanks! Your email app should open now. If it didn't, write us at <a href="mailto:hello@tryredge.com">hello@tryredge.com</a>.</p>
+      <p id="error" class="error">Something went wrong. Please try again or email us directly.</p>
+      <noscript><p class="muted">JavaScript is disabled. Email us at <a href="mailto:hello@tryredge.com?subject=Redge%20Waitlist">hello@tryredge.com</a> with subject "Redge Waitlist".</p></noscript>
+    </div>
+  </section>
+
+  <!-- PRIVACY PAGE -->
+  <section id="privacyPage" class="container page" aria-labelledby="privacy-h">
+    <div class="prose">
+      <h1 id="privacy-h">Privacy Policy</h1>
+      <p class="muted">Effective date: <span id="pp-date"></span></p>
+      <p>We built Redge to be privacy‑first. This policy explains what we collect, why, and how you can control it.</p>
+      <h2>1. Data we process</h2>
+      <ul>
+        <li><strong>On‑device telemetry</strong> (e.g., RPM, speed, temperatures, derived scores). Stored locally by default.</li>
+        <li><strong>App diagnostics</strong> (crash logs, basic analytics) to improve stability. You can opt out where supported.</li>
+        <li><strong>Contact</strong> (email) when you join the waitlist or contact us.</li>
+      </ul>
+      <h2>2. How we use data</h2>
+      <ul>
+        <li>Provide real‑time and post‑session insights.</li>
+        <li>Maintain app reliability and security.</li>
+        <li>Communicate updates you opt into.</li>
+      </ul>
+      <h2>3. Sharing</h2>
+      <p>We do not sell your data. We may share minimal data with processors that help us run the app (e.g., crash reporting), under strict agreements.</p>
+      <h2>4. Your choices</h2>
+      <ul>
+        <li>Export and delete your sessions at any time from the app.</li>
+        <li>Opt out of diagnostics where supported by your OS.</li>
+        <li>Contact us at <a href="mailto:privacy@tryredge.com">privacy@tryredge.com</a> for any request.</li>
+      </ul>
+      <h2>5. Retention</h2>
+      <p>We retain contact emails until you unsubscribe and diagnostics per platform defaults (typically 90 days).</p>
+      <h2>6. Children</h2>
+      <p>Redge is not directed to children under 16.</p>
+      <h2>7. Changes</h2>
+      <p>We will update this policy as the product evolves. We'll change the effective date above and, when material, notify you.</p>
+    </div>
+  </section>
+
+  <!-- TERMS PAGE -->
+  <section id="termsPage" class="container page" aria-labelledby="terms-h">
+    <div class="prose">
+      <h1 id="terms-h">Terms of Service</h1>
+      <p class="muted">Last updated: <span id="tos-date"></span></p>
+      <h2>1. Agreement</h2>
+      <p>By using Redge, you agree to these Terms and to our Privacy Policy.</p>
+      <h2>2. Beta access</h2>
+      <p>During TestFlight/early access, features may change or be unavailable. We provide the service “as is”, without warranties.</p>
+      <h2>3. Safety</h2>
+      <p>Do not interact with the app while driving or riding. You are solely responsible for safe operation of your vehicle.</p>
+      <h2>4. Licenses & Ownership</h2>
+      <p>Redge retains all rights to the app, content, and trademarks. You receive a limited, non‑transferable license to use the app.</p>
+      <h2>5. Acceptable use</h2>
+      <ul>
+        <li>No reverse‑engineering or unauthorized access.</li>
+        <li>No misuse that could harm the app or other users.</li>
+      </ul>
+      <h2>6. Liability</h2>
+      <p>To the maximum extent permitted by law, Redge is not liable for indirect or consequential damages.</p>
+      <h2>7. Termination</h2>
+      <p>We may suspend or terminate access for violations of these Terms.</p>
+      <h2>8. Contact</h2>
+      <p>Questions? <a href="mailto:hello@tryredge.com">hello@tryredge.com</a></p>
+    </div>
+  </section>
 
   <footer>
     <div class="container row">
       <div>© <span id="year"></span> Redge. All rights reserved.</div>
-      <div>Made for people who want numbers, not noise.</div>
+      <div>
+        <a href="#privacy">Privacy</a> · <a href="#terms">Terms</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Mobile menu functionality
+    // Mobile menu
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('open');
     }
-
     function closeMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.remove('open');
     }
-
-    // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
       const menu = document.getElementById('mobileMenu');
       const btn = document.querySelector('.mobile-menu-btn');
-      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
         menu.classList.remove('open');
       }
     });
 
-    // Smooth scroll for in‑page anchors with offset for sticky header
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if (el) {
-          e.preventDefault();
-          const headerHeight = document.querySelector('header').offsetHeight;
-          const elementPosition = el.offsetTop - headerHeight - 20;
-          window.scrollTo({
-            top: elementPosition,
-            behavior: 'smooth'
-          });
-          closeMobileMenu();
-        }
-      });
-    });
+    // Smooth scroll for in‑page anchors (when on the home page view)
+    function smoothScrollTo(id){
+      const el = document.getElementById(id);
+      if (!el) return;
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const elementPosition = el.offsetTop - headerHeight - 20;
+      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+    }
 
-    // Enhanced waitlist form handling
+    // Waitlist mailto handler
     function handleJoin(e) {
       e.preventDefault();
-      
       const form = e.target;
       const button = form.querySelector('button[type="submit"]');
       const email = form.email.value.trim();
       const thanksEl = document.getElementById('thanks');
       const errorEl = document.getElementById('error');
-      
-      // Reset previous states
       thanksEl.style.display = 'none';
       errorEl.style.display = 'none';
-      
-      if (!email) {
-        errorEl.textContent = 'Please enter a valid email address.';
-        errorEl.style.display = 'block';
-        return false;
-      }
-
-      // Simple email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        errorEl.textContent = 'Please enter a valid email address.';
-        errorEl.style.display = 'block';
-        return false;
-      }
-      
-      // Show loading state
-      button.classList.add('loading');
-      button.textContent = 'Sending...';
-      
+      if (!emailRegex.test(email)) { errorEl.textContent = 'Please enter a valid email address.'; errorEl.style.display = 'block'; return false; }
+      button.classList.add('loading'); button.textContent = 'Sending...';
       try {
         const subject = encodeURIComponent('Redge Waitlist');
-        const lines = [
-          `Email: ${email}`,
-          `From: ${location.href}`,
-          `Timestamp: ${new Date().toISOString()}`,
-          '— Add me to TestFlight / early access.'
-        ];
+        const lines = [ `Email: ${email}`, `From: ${location.href}`, `Timestamp: ${new Date().toISOString()}`, '— Add me to TestFlight / early access.' ];
         const body = encodeURIComponent(lines.join('\n'));
-        
-        // Small delay to show loading state
         setTimeout(() => {
           window.location.href = `mailto:hello@tryredge.com?subject=${subject}&body=${body}`;
-          
-          // Reset form and show success
-          form.reset();
-          button.classList.remove('loading');
-          button.textContent = 'Request access';
-          thanksEl.style.display = 'block';
-        }, 500);
-        
-      } catch (error) {
-        console.error('Error:', error);
-        button.classList.remove('loading');
-        button.textContent = 'Request access';
-        errorEl.textContent = 'Something went wrong. Please try again.';
-        errorEl.style.display = 'block';
+          form.reset(); button.classList.remove('loading'); button.textContent = 'Request access'; thanksEl.style.display = 'block';
+        }, 400);
+      } catch (err) {
+        console.error(err); button.classList.remove('loading'); button.textContent = 'Request access'; errorEl.textContent = 'Something went wrong. Please try again.'; errorEl.style.display = 'block';
       }
-      
       return false;
     }
 
-    // Animate elements on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+    // Simple hash router for pages (home sections vs privacy/terms)
+    const pages = {
+      home: document.querySelector('main#home'),
+      app: document.getElementById('app'),
+      faq: document.getElementById('faq'),
+      waitlist: document.getElementById('waitlist'),
+      privacy: document.getElementById('privacyPage'),
+      terms: document.getElementById('termsPage')
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
+    function setActivePage(target){
+      // Hide all page sections
+      pages.privacy.classList.remove('active');
+      pages.terms.classList.remove('active');
+      // Show or hide home sections
+      const showHome = (target === 'home' || target === 'app' || target === 'faq' || target === 'waitlist');
+      pages.home.style.display = showHome ? 'block' : 'none';
+      document.getElementById('app').style.display = showHome ? 'block' : 'none';
+      document.getElementById('faq').style.display = showHome ? 'block' : 'none';
+      document.getElementById('waitlist').style.display = showHome ? 'block' : 'none';
 
-    // Observe cards and steps for animation
+      // Activate routed pages
+      if (target === 'privacy') pages.privacy.classList.add('active');
+      if (target === 'terms') pages.terms.classList.add('active');
+
+      // Scroll to top for routed pages
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function route(){
+      const hash = location.hash.replace('#','') || 'home';
+      const known = ['home','app','faq','waitlist','privacy','terms'];
+      const target = known.includes(hash) ? hash : 'home';
+      setActivePage(target);
+      closeMobileMenu();
+      // If navigating to an in‑home anchor (app/faq/waitlist), smooth scroll
+      if (['app','faq','waitlist'].includes(target)) {
+        setTimeout(()=>smoothScrollTo(target), 0);
+      }
+    }
+
+    window.addEventListener('hashchange', route);
     document.addEventListener('DOMContentLoaded', () => {
-      const animateElements = document.querySelectorAll('.card, .step, .qa');
-      animateElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(el);
-      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('pp-date').textContent = new Date().toISOString().slice(0,10);
+      document.getElementById('tos-date').textContent = new Date().toISOString().slice(0,10);
+      route();
     });
-
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
