@@ -859,3 +859,194 @@
       
       <h2>7. Updates</h2>
       <p>We may update this policy as our product evolves. We'll notify users of material changes and update the effective date above.</p>
+      
+      <h2>8. Contact Us</h2>
+      <p>For privacy questions or requests, contact us at <a href="mailto:privacy@tryredge.com">privacy@tryredge.com</a>.</p>
+    </div>
+  </section>
+
+  <!-- TERMS PAGE -->
+  <section id="termsPage" class="container page" aria-labelledby="terms-h">
+    <div class="prose">
+      <h1 id="terms-h">Terms of Service</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 40px;">Last updated: <span id="tos-date"></span></p>
+      
+      <h2>1. Agreement</h2>
+      <p>By using Redge, you agree to these Terms of Service and our Privacy Policy. If you disagree with any part of these terms, you may not use our service.</p>
+      
+      <h2>2. Beta Access</h2>
+      <p>During TestFlight and early access periods, Redge is provided "as is" without warranties. Features may change, be removed, or become temporarily unavailable during development.</p>
+      
+      <h2>3. Safety First</h2>
+      <p>Never interact with the Redge app while operating a vehicle. You are solely responsible for safe vehicle operation. Redge is a coaching tool, not a substitute for good driving practices.</p>
+      
+      <h2>4. Acceptable Use</h2>
+      <ul>
+        <li>Use Redge only for personal, non-commercial purposes</li>
+        <li>Do not reverse engineer, decompile, or hack the app</li>
+        <li>Do not share your account credentials</li>
+        <li>Do not use the service to harm others or violate laws</li>
+      </ul>
+      
+      <h2>5. Intellectual Property</h2>
+      <p>Redge and all related content, features, and functionality are owned by us and protected by copyright and other intellectual property laws. You receive a limited license to use the app for personal purposes.</p>
+      
+      <h2>6. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, Redge is not liable for any indirect, incidental, special, or consequential damages arising from your use of the service.</p>
+      
+      <h2>7. Termination</h2>
+      <p>We may suspend or terminate your access to Redge at any time for violations of these terms or for any other reason at our sole discretion.</p>
+      
+      <h2>8. Changes to Terms</h2>
+      <p>We reserve the right to modify these terms at any time. We'll notify users of significant changes via email or in-app notifications.</p>
+      
+      <h2>9. Contact</h2>
+      <p>Questions about these terms? Contact us at <a href="mailto:hello@tryredge.com">hello@tryredge.com</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container row">
+      <div>© <span id="year"></span> Redge. All rights reserved.</div>
+      <div>
+        <a href="#privacy">Privacy</a> • <a href="#terms">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.remove('open');
+    }
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.querySelector('.mobile-menu-btn');
+      if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+
+    // Smooth scroll for in‑page anchors
+    function smoothScrollTo(id){
+      const el = document.getElementById(id);
+      if (!el) return;
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const elementPosition = el.offsetTop - headerHeight - 20;
+      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+    }
+
+    // Waitlist form handler
+    function handleJoin(e) {
+      e.preventDefault();
+      const form = e.target;
+      const button = form.querySelector('button[type="submit"]');
+      const email = form.email.value.trim();
+      const thanksEl = document.getElementById('thanks');
+      const errorEl = document.getElementById('error');
+      
+      thanksEl.style.display = 'none';
+      errorEl.style.display = 'none';
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        return false;
+      }
+      
+      button.textContent = 'Sending...';
+      button.disabled = true;
+      
+      try {
+        const subject = encodeURIComponent('Redge Waitlist - Early Access Request');
+        const lines = [
+          `Email: ${email}`,
+          `Requested from: ${location.href}`,
+          `Timestamp: ${new Date().toISOString()}`,
+          '',
+          'Please add me to the Redge waitlist for early access and TestFlight beta.',
+          '',
+          'Thanks!'
+        ];
+        const body = encodeURIComponent(lines.join('\n'));
+        
+        setTimeout(() => {
+          window.location.href = `mailto:hello@tryredge.com?subject=${subject}&body=${body}`;
+          form.reset();
+          button.textContent = 'Get early access';
+          button.disabled = false;
+          thanksEl.style.display = 'block';
+        }, 500);
+      } catch (err) {
+        console.error(err);
+        button.textContent = 'Get early access';
+        button.disabled = false;
+        errorEl.textContent = 'Something went wrong. Please try again or email us directly.';
+        errorEl.style.display = 'block';
+      }
+      
+      return false;
+    }
+
+    // Router for pages
+    const pages = {
+      home: document.querySelector('main#home'),
+      app: document.getElementById('app'),
+      faq: document.getElementById('faq'),
+      waitlist: document.getElementById('waitlist'),
+      privacy: document.getElementById('privacyPage'),
+      terms: document.getElementById('termsPage')
+    };
+
+    function setActivePage(target) {
+      // Hide all page sections
+      pages.privacy.classList.remove('active');
+      pages.terms.classList.remove('active');
+      
+      // Show or hide home sections
+      const showHome = ['home', 'app', 'faq', 'waitlist'].includes(target);
+      pages.home.style.display = showHome ? 'block' : 'none';
+      pages.app.style.display = showHome ? 'block' : 'none';
+      pages.faq.style.display = showHome ? 'block' : 'none';
+      pages.waitlist.style.display = showHome ? 'block' : 'none';
+
+      // Activate routed pages
+      if (target === 'privacy') pages.privacy.classList.add('active');
+      if (target === 'terms') pages.terms.classList.add('active');
+
+      // Scroll to top for routed pages
+      if (['privacy', 'terms'].includes(target)) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    }
+
+    function route() {
+      const hash = location.hash.replace('#', '') || 'home';
+      const known = ['home', 'app', 'faq', 'waitlist', 'privacy', 'terms'];
+      const target = known.includes(hash) ? hash : 'home';
+      setActivePage(target);
+      closeMobileMenu();
+      
+      // Smooth scroll for home sections
+      if (['app', 'faq', 'waitlist'].includes(target)) {
+        setTimeout(() => smoothScrollTo(target), 0);
+      }
+    }
+
+    window.addEventListener('hashchange', route);
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentDate = new Date().toISOString().slice(0, 10);
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('pp-date').textContent = currentDate;
+      document.getElementById('tos-date').textContent = currentDate;
+      route();
+    });
+  </script>
+</body>
+</html>
