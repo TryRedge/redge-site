@@ -9,124 +9,613 @@
   <meta property="og:description" content="Plug your OBD‑II, ride or drive, and get AI coaching. Real‑time metrics, cornering/line analysis, warm‑up discipline, and goals. Works for both cars and motorcycles." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tryredge.com/" />
-  <meta name="theme-color" content="#0d63ff" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffffff'/%3E%3Cpath fill='%230d63ff' d='M14 45l7.9-22.9A6 6 0 0 1 27.6 18h21.8c1.1 0 2 .9 2 2v4.2c0 1.1-.9 2-2 2H31.7l-2.2 6.5h16c1.1 0 2 .9 2 2v4.1c0 1.1-.9 2-2 2H27.3L23.8 46H16a2 2 0 0 1-2-2z'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#2563eb" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Cpath fill='%23ffffff' d='M14 45l7.9-22.9A6 6 0 0 1 27.6 18h21.8c1.1 0 2 .9 2 2v4.2c0 1.1-.9 2-2 2H31.7l-2.2 6.5h16c1.1 0 2 .9 2 2v4.1c0 1.1-.9 2-2 2H27.3L23.8 46H16a2 2 0 0 1-2-2z'/%3E%3C/svg%3E" />
   <style>
-    :root{
-      --bg:#0a0f1a; --surface:#0d1320; --card:#0f1626; --text:#e7eefc; --muted:#93a3c5; --line:#1e2a44; --brand:#0d63ff; --brand-2:#5ab1ff; --accent:#16a34a; --radius:16px; --shadow:0 15px 50px rgba(0,0,0,.25); --max:1140px;
+    :root {
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #dbeafe;
+      --accent: #10b981;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --max: 1200px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;background:radial-gradient(1200px 500px at 10% -10%, rgba(13,99,255,.18), transparent), radial-gradient(900px 400px at 90% 10%, rgba(90,177,255,.17), transparent), var(--bg);color:var(--text);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:24px}
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:rgba(13,19,32,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
-    .logo{width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(135deg,#0d63ff,#5ab1ff);border:1px solid #2a4fa6;box-shadow:0 0 0 4px rgba(13,99,255,.15)}
-    .logo svg{width:18px;height:18px}
-    .navlinks{display:flex;gap:18px;align-items:center}
-    .button{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);background:linear-gradient(180deg,#121a2a,#0f1626);transition:all 0.2s ease;cursor:pointer}
-    .button:hover{transform:translateY(-1px);box-shadow:0 20px 60px rgba(13,99,255,.25)}
-    .button.primary{border-color:#2156ff;background:linear-gradient(135deg,#0d63ff,#3f85ff);color:#fff;font-weight:800}
-    .button.primary:hover{background:linear-gradient(135deg,#0a53d7,#2f75ff)}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .navlinks a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .navlinks a:hover {
+      color: var(--primary);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      color: var(--text);
+      font-weight: 500;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
 
     /* Mobile menu */
-    .mobile-menu-btn{display:none;background:none;border:1px solid var(--line);padding:8px;border-radius:8px;cursor:pointer}
-    .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:8px;box-shadow:var(--shadow)}
-    .mobile-menu.open{display:block}
-    .mobile-menu .navlinks{flex-direction:column;padding:16px;gap:12px}
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text-secondary);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 24px;
+      right: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      margin-top: 8px;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu .navlinks {
+      flex-direction: column;
+      padding: 16px;
+      gap: 16px;
+    }
 
     /* Hero */
-    .hero{padding:86px 0 50px;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
-    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#cde0ff;background:rgba(13,99,255,.08)}
-    h1{font-size: clamp(38px, 6.2vw, 62px);line-height:1.05;margin:16px 0}
-    .lead{color:var(--muted);font-size: clamp(16px, 2.1vw, 20px);max-width:64ch}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .hero {
+      padding: 80px 0;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
 
-    .hero-card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:linear-gradient(180deg,#111a2c,#0f1626);box-shadow:var(--shadow)}
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
 
-    /* Mock phone */
-    .phone{aspect-ratio:9/19;border-radius:30px;border:1px solid #27407d;background:linear-gradient(160deg,#0f1a33,#0b1222);position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(4,12,24,.6)}
-    .phone .ui{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:10px}
-    .pill{display:flex;justify-content:space-between;align-items:center;border:1px solid #22325c;border-radius:12px;padding:10px 12px;background:rgba(255,255,255,.03)}
-    .metric{font-variant-numeric:tabular-nums;color:#70b0ff;font-weight:700}
+    h1 {
+      font-size: clamp(42px, 6vw, 64px);
+      line-height: 1.1;
+      margin: 0 0 24px 0;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .lead {
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 16px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    /* Phone mockup */
+    .phone {
+      aspect-ratio: 9/19;
+      max-width: 280px;
+      border-radius: 24px;
+      border: 8px solid #1f2937;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .phone .ui {
+      position: absolute;
+      inset: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pill {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .metric {
+      font-weight: 700;
+      color: var(--primary);
+      font-variant-numeric: tabular-nums;
+    }
 
     /* Sections */
-    section{padding:64px 0;border-top:1px solid var(--line)}
-    h2{font-size: clamp(28px, 4.5vw, 38px);margin:0 0 12px}
-    .muted{color:var(--muted)}
+    section {
+      padding: 80px 0;
+    }
 
-    /* Alternating features */
-    .features{display:grid;gap:28px}
-    .feature{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:22px;background:linear-gradient(180deg,#0f1728,#0d1424)}
-    .feature .copy{display:flex;flex-direction:column;gap:10px}
-    .feature h3{margin:0;font-size:24px}
-    .mock{border:1px solid #2a3b68;border-radius:18px;background:linear-gradient(135deg, rgba(13,99,255,.12), rgba(90,177,255,.06));height:420px;display:grid;place-items:center;position:relative;overflow:hidden}
-    .mock:before{content:"";position:absolute;inset:0;background-image:linear-gradient(transparent 0 70%, rgba(13,99,255,.08)), repeating-linear-gradient( to bottom, rgba(255,255,255,.04), rgba(255,255,255,.04) 1px, transparent 1px, transparent 24px );opacity:.7}
-    $1
+    section:not(:first-child) {
+      border-top: 1px solid var(--border-light);
+    }
 
-    /* Ensure inserted screenshots scale nicely */
-    .mock img{ display:block; width:100%; height:100%; object-fit:contain; border-radius:18px; }
-    /* Cap the mock box responsively so large PNGs don't blow up the layout */
-    .mock{ height: clamp(280px, 42vw, 420px); }
+    h2 {
+      font-size: clamp(32px, 5vw, 42px);
+      margin: 0 0 16px 0;
+      font-weight: 700;
+    }
 
+    .section-intro {
+      color: var(--text-secondary);
+      font-size: 18px;
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      gap: 80px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .feature:nth-child(even) {
+      direction: rtl;
+    }
+
+    .feature:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .feature-content h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+    }
+
+    .feature-content p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .feature-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-content li {
+      color: var(--text-secondary);
+      padding: 8px 0;
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .feature-content li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .mock {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mock img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .phone-mini {
+      color: var(--text-secondary);
+      font-size: 14px;
+      text-align: center;
+    }
 
     /* FAQ */
-    .faq{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
-    details{border:1px solid var(--line);border-radius:14px;padding:14px;background:linear-gradient(180deg,#10192b,#0f1626)}
-    details[open]{box-shadow:0 12px 35px rgba(13,99,255,.2)}
-    summary{cursor:pointer;font-weight:700}
+    .faq {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
 
-    /* Waitlist */
-    .cta{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:34px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,#101a2c,#0f1626);box-shadow:var(--shadow)}
-    input,button{outline:none}
-    .input{flex:1;min-width:240px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0c1322;color:var(--text);transition:border-color 0.2s ease}
-    .input:focus{border-color:var(--brand)}
-    .success{margin-top:10px;color:#6ee7b7;display:none}
-    .error{margin-top:10px;color:#fab5b5;display:none}
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all 0.2s ease;
+    }
+
+    details:hover {
+      box-shadow: var(--shadow);
+    }
+
+    details[open] {
+      box-shadow: var(--shadow-lg);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    details > div {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 60px 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cta h2 {
+      margin: 0;
+    }
+
+    .cta p {
+      color: var(--text-secondary);
+      font-size: 18px;
+      margin: 0;
+      max-width: 500px;
+    }
+
+    .input {
+      flex: 1;
+      min-width: 280px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      font-size: 16px;
+      transition: border-color 0.2s ease;
+    }
+
+    .input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .success, .error {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      display: none;
+    }
+
+    .success {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+
+    .error {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fecaca;
+    }
 
     /* Footer */
-    footer{padding:40px 0;color:#9fb0d1;font-size:14px}
-    footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    footer a{border-bottom:1px dashed #3a5dbd}
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-light);
+      background: var(--surface);
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
 
-    /* Pages (router targets) */
-    .page{display:none;min-height:60vh}
-    .page.active{display:block}
-    .prose{max-width:880px}
-    .prose h1{font-size:42px;margin:0 0 16px}
-    .prose h2{margin-top:24px;font-size:24px}
-    .prose p, .prose li{color:#c7d5f2;line-height:1.7}
+    footer .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Pages */
+    .page {
+      display: none;
+      min-height: 60vh;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .prose {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .prose h1 {
+      font-size: 42px;
+      margin: 0 0 24px 0;
+    }
+
+    .prose h2 {
+      font-size: 28px;
+      margin: 40px 0 16px 0;
+    }
+
+    .prose p, .prose li {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .prose ul, .prose ol {
+      margin: 16px 0;
+    }
 
     /* Responsive */
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr;gap:22px;padding-top:56px}
-      .feature{grid-template-columns:1fr;gap:18px}
-      .faq{grid-template-columns:1fr}
-      .navlinks{display:none}
-      .mobile-menu-btn{display:block}
-      .nav{position:relative}
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .feature {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .feature:nth-child(even) {
+        direction: ltr;
+      }
+
+      .faq {
+        grid-template-columns: 1fr;
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
     }
 
-    /* Accessibility improvements */
-    @media (prefers-reduced-motion: reduce) {
-      *,::before,::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .cta {
+        padding: 40px 24px;
+      }
+
+      .cta form {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .input {
+        min-width: auto;
+      }
     }
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
     /* Focus styles */
     .button:focus,
-    .input:focus{
-      outline:2px solid var(--brand);
-      outline-offset:2px;
+    .input:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
     }
-  
-    /* --- Overrides to prevent oversized screenshots inside .mock --- */
-    .mock{ height: clamp(280px, 42vw, 420px); display:flex; align-items:center; justify-content:center; }
-    .mock img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:18px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -134,7 +623,9 @@
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Redge">
         <span class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18l3.4-9.8A4 4 0 0 1 11.2 6H20v3.2h-8l-1.2 3.5H18V16h-8.8L7.6 18H4z" fill="#fff"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 18l3.4-9.8A4 4 0 0 1 11.2 6H20v3.2h-8l-1.2 3.5H18V16h-8.8L7.6 18H4z" fill="#fff"/>
+          </svg>
         </span>
         <span>Redge</span>
       </a>
@@ -148,8 +639,8 @@
       </button>
 
       <nav class="navlinks">
-        <a href="#home">Intro</a>
-        <a href="#app">App</a>
+        <a href="#home">Home</a>
+        <a href="#app">Features</a>
         <a href="#faq">FAQ</a>
         <a href="#waitlist">Waitlist</a>
         <a href="#privacy">Privacy</a>
@@ -158,8 +649,8 @@
 
       <div class="mobile-menu" id="mobileMenu">
         <nav class="navlinks">
-          <a href="#home" onclick="closeMobileMenu()">Intro</a>
-          <a href="#app" onclick="closeMobileMenu()">App</a>
+          <a href="#home" onclick="closeMobileMenu()">Home</a>
+          <a href="#app" onclick="closeMobileMenu()">Features</a>
           <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
           <a href="#waitlist" onclick="closeMobileMenu()">Waitlist</a>
           <a href="#privacy" onclick="closeMobileMenu()">Privacy</a>
@@ -169,117 +660,140 @@
     </div>
   </header>
 
-  <!-- HOME (Introduction) -->
+  <!-- HOME -->
   <main id="home" class="container">
     <section class="hero">
       <div>
-        <span class="badge">iOS first · Android next · Cars & Motorcycles</span>
-        <h1>AI telemetry & coaching<br/>for cars and motorcycles.</h1>
-        <p class="lead">Turn your OBD‑II and on‑device sensors into <strong>actionable coaching</strong>: corner lines, smooth acceleration, warm‑up discipline, and efficiency. Built for the road, not for fluff.</p>
-        <div class="cta-row">
-          <a class="button primary" href="#waitlist">Join the waitlist</a>
-          <a class="button" href="#faq">Read FAQ</a>
+        <div class="badge">
+          <span>🚗</span>
+          iOS • Android • Cars & Motorcycles
         </div>
-        <div class="hero-card" style="margin-top:18px;font-size:14px;color:#bcd0f5;display:inline-flex;gap:10px;align-items:center">
-          <span aria-hidden="true">🔒</span>
-          <span>Privacy‑first. Your rides are yours. Export anytime.</span>
+        <h1>AI telemetry & coaching for your rides</h1>
+        <p class="lead">Transform your vehicle's OBD-II data into intelligent insights. Get real-time metrics, post-session analysis, and personalized coaching to improve your driving and riding experience.</p>
+        <div class="cta-row">
+          <a class="button primary" href="#waitlist">Join waitlist</a>
+          <a class="button" href="#app">See features</a>
+        </div>
+        <div class="hero-card">
+          <span>🔒</span>
+          <span>Privacy-first • Your data stays yours • Export anytime</span>
         </div>
       </div>
-      <div class="hero-card" aria-hidden="true">
+      <div>
         <div class="phone">
           <div class="ui">
-            <div class="pill"><span>Live RPM</span><strong class="metric">3,950</strong></div>
-            <div class="pill"><span>Coolant</span><strong class="metric">78 °C</strong></div>
-            <div class="pill"><span>Lean score</span><strong class="metric">A‑</strong></div>
-            <div class="pill"><span>Smooth accel</span><strong class="metric">92%</strong></div>
-            <div class="pill"><span>Eco streak</span><strong class="metric">5 rides</strong></div>
+            <div class="pill">
+              <span>Live RPM</span>
+              <strong class="metric">3,950</strong>
+            </div>
+            <div class="pill">
+              <span>Coolant Temp</span>
+              <strong class="metric">78°C</strong>
+            </div>
+            <div class="pill">
+              <span>Efficiency</span>
+              <strong class="metric">A-</strong>
+            </div>
+            <div class="pill">
+              <span>Smooth Accel</span>
+              <strong class="metric">92%</strong>
+            </div>
+            <div class="pill">
+              <span>Eco Streak</span>
+              <strong class="metric">5 rides</strong>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- APP (Three alternating feature sections: R / L / R screenshots) -->
+  <!-- FEATURES -->
   <section id="app" class="container">
-    <h2>Redge in action</h2>
-    <p class="muted">Three snapshots of what the app does for you. Screenshots on the right, left, then right — copy on the opposite side.</p>
+    <h2>How Redge works</h2>
+    <p class="section-intro">Three core features that transform your driving data into actionable insights and coaching.</p>
 
-    <div class="features" style="margin-top:18px">
-      <!-- 1) Screenshot RIGHT, copy LEFT -->
+    <div class="features">
+      <!-- Feature 1: Real-time Telemetry -->
       <article class="feature">
-        <div class="copy">
-          <h3>Real‑time Telemetry</h3>
-          <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget elit ac lorem hendrerit euismod. Integer efficitur, nibh vitae sagittis luctus, lectus dolor aliquet magna, nec dignissim velit nibh quis urna. Cras a justo urna. Pellentesque habitant morbi tristique senectus et netus.</p>
-          <ul class="muted" style="margin:0 0 0 18px">
-            <li>Lorem ipsum dolor sit amet, consectetur.</li>
-            <li>Integer efficitur nibh vitae sagittis luctus.</li>
-            <li>Aliquet magna nec dignissim velit nibh.</li>
+        <div class="feature-content">
+          <h3>Real-time Dashboard</h3>
+          <p>Monitor your vehicle's vital stats in real-time. Track RPM, temperature, speed, and custom metrics with a clean, distraction-free interface designed for safety.</p>
+          <ul>
+            <li>Live OBD-II data visualization</li>
+            <li>Customizable metric displays</li>
+            <li>Voice alerts for critical thresholds</li>
+            <li>Battery-optimized background monitoring</li>
           </ul>
         </div>
-        <div class="mock" aria-label="App screenshot placeholder (right)"><div class="phone-mini">Screenshot</div></div>
-      </article>
-
-      <!-- 2) Screenshot LEFT, copy RIGHT -->
-      <article class="feature">
-        <div class="mock" aria-label="App screenshot placeholder (left)"><div class="phone-mini">Screenshot</div>
-        <img src="foto1.png" alt="Telemetry screen"
-     style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:18px">
-
-        </div>
-        <div class="copy">
-          <h3>Post‑Session Coaching</h3>
-          <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, tortor non hendrerit laoreet, libero nibh luctus libero, a ultrices arcu arcu id lorem. Etiam consequat sem ut ante efficitur tristique. Donec quis erat lectus. Sed lacinia tristique viverra.</p>
-          <ul class="muted" style="margin:0 0 0 18px">
-            <li>Nunc commodo, quam id dignissim pretium.</li>
-            <li>Curabitur lacinia, velit non tempor porttitor.</li>
-            <li>Praesent porta nisl id magna aliquam.</li>
-          </ul>
+        <div class="mock">
+          <div class="phone-mini">Real-time telemetry view</div>
         </div>
       </article>
 
-      <!-- 3) Screenshot RIGHT, copy LEFT -->
+      <!-- Feature 2: Post-session Analysis -->
       <article class="feature">
-        <div class="copy">
-          <h3>Goals & Badges</h3>
-          <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus gravida tortor, nec ultricies magna maximus nec. In hac habitasse platea dictumst. Curabitur pellentesque sem a purus ultrices, non maximus urna semper.</p>
-          <ul class="muted" style="margin:0 0 0 18px">
-            <li>Fusce nec risus vitae velit ultricies dictum.</li>
-            <li>Morbi quis augue id sapien faucibus feugiat.</li>
-            <li>Integer iaculis urna sed lorem facilisis.</li>
+        <div class="mock">
+          <img src="foto1.png" alt="Post-session analysis screen showing driving metrics and AI coaching recommendations" />
+        </div>
+        <div class="feature-content">
+          <h3>AI-Powered Analysis</h3>
+          <p>After each trip, get detailed insights about your driving patterns, fuel efficiency, and performance. Our AI identifies areas for improvement and celebrates your progress.</p>
+          <ul>
+            <li>Comprehensive trip summaries</li>
+            <li>Efficiency and performance scoring</li>
+            <li>Personalized coaching recommendations</li>
+            <li>Historical trend analysis</li>
           </ul>
         </div>
-        <div class="mock" aria-label="App screenshot placeholder (right)"><div class="phone-mini">Screenshot</div></div>
+      </article>
+
+      <!-- Feature 3: Goals & Progress -->
+      <article class="feature">
+        <div class="feature-content">
+          <h3>Goals & Achievements</h3>
+          <p>Set personal driving goals and track your progress over time. Earn achievements for efficient driving, consistent performance, and reaching milestones.</p>
+          <ul>
+            <li>Custom goal setting and tracking</li>
+            <li>Achievement badges and streaks</li>
+            <li>Weekly and monthly challenges</li>
+            <li>Progress sharing with friends</li>
+          </ul>
+        </div>
+        <div class="mock">
+          <div class="phone-mini">Goals and achievements dashboard</div>
+        </div>
       </article>
     </div>
   </section>
 
   <!-- FAQ -->
   <section id="faq" class="container">
-    <h2>FAQ</h2>
+    <h2>Frequently Asked Questions</h2>
     <div class="faq">
       <details>
-        <summary>Which adapters?</summary>
-        <div class="muted">Any quality BLE OBD‑II that speaks ELM327/PIDs cleanly. We'll publish a tested list before launch.</div>
+        <summary>Which OBD-II adapters work with Redge?</summary>
+        <div>Any quality Bluetooth Low Energy (BLE) OBD-II adapter that supports ELM327 protocol. We'll publish a comprehensive compatibility list before launch, including recommended models tested by our team.</div>
       </details>
       <details>
-        <summary>Platforms?</summary>
-        <div class="muted">iOS first (Swift/SwiftUI). Android next.</div>
+        <summary>What platforms does Redge support?</summary>
+        <div>We're launching on iOS first with SwiftUI, followed by Android. Both platforms will have feature parity and seamless data sync across devices.</div>
       </details>
       <details>
-        <summary>Battery impact?</summary>
-        <div class="muted">We pause sampling when the vehicle stops and keep reconnects efficient.</div>
+        <summary>How does Redge affect battery life?</summary>
+        <div>Redge is designed to be battery-efficient. We automatically pause data collection when your vehicle stops and optimize Bluetooth reconnections to minimize power consumption.</div>
       </details>
       <details>
-        <summary>Which vehicles?</summary>
-        <div class="muted">Works with both cars and motorcycles that support OBD‑II (most vehicles 1996+).</div>
+        <summary>Which vehicles are supported?</summary>
+        <div>Redge works with both cars and motorcycles that have OBD-II ports (most vehicles manufactured after 1996). We support additional sensors for motorcycles when available.</div>
       </details>
       <details>
-        <summary>Data privacy?</summary>
-        <div class="muted">Your data stays on your device. We don't track locations or sell data to third parties.</div>
+        <summary>How is my driving data protected?</summary>
+        <div>Your data stays on your device by default. We don't track your location or sell data to third parties. You can export or delete your data at any time directly from the app.</div>
       </details>
       <details>
-        <summary>Pricing?</summary>
-        <div class="muted">We're exploring freemium and premium tiers. Early adopters get special pricing.</div>
+        <summary>What will Redge cost?</summary>
+        <div>We're exploring both freemium and premium subscription models. Early waitlist members will receive special pricing and exclusive features. Basic telemetry will always be free.</div>
       </details>
     </div>
   </section>
@@ -287,16 +801,19 @@
   <!-- WAITLIST -->
   <section id="waitlist" class="container">
     <div class="cta">
-      <span class="badge">Early riders & drivers</span>
-      <h2>Join the waitlist</h2>
-      <p class="muted">Want TestFlight access and early badges? Drop your email — we'll invite batches as we scale.</p>
-      <form id="wlForm" onsubmit="return handleJoin(event)" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:680px;width:100%">
-        <input required type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" class="input" />
-        <button class="button primary" type="submit">Request access</button>
+      <div class="badge">
+        <span>⭐</span>
+        Early Access
+      </div>
+      <h2>Join the Redge waitlist</h2>
+      <p>Be among the first to experience AI-powered vehicle coaching. Get TestFlight access, exclusive features, and early adopter pricing.</p>
+      <form id="wlForm" onsubmit="return handleJoin(event)" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;width:100%;max-width:500px;">
+        <input required type="email" name="email" placeholder="your@email.com" aria-label="Email address" autocomplete="email" class="input" />
+        <button class="button primary" type="submit">Get early access</button>
       </form>
       <p id="thanks" class="success">Thanks! Your email app should open now. If it didn't, write us at <a href="mailto:hello@tryredge.com">hello@tryredge.com</a>.</p>
       <p id="error" class="error">Something went wrong. Please try again or email us directly.</p>
-      <noscript><p class="muted">JavaScript is disabled. Email us at <a href="mailto:hello@tryredge.com?subject=Redge%20Waitlist">hello@tryredge.com</a> with subject "Redge Waitlist".</p></noscript>
+      <noscript><p style="color: var(--text-secondary);">JavaScript is disabled. Email us at <a href="mailto:hello@tryredge.com?subject=Redge%20Waitlist">hello@tryredge.com</a> with subject "Redge Waitlist".</p></noscript>
     </div>
   </section>
 
@@ -304,175 +821,41 @@
   <section id="privacyPage" class="container page" aria-labelledby="privacy-h">
     <div class="prose">
       <h1 id="privacy-h">Privacy Policy</h1>
-      <p class="muted">Effective date: <span id="pp-date"></span></p>
-      <p>We built Redge to be privacy‑first. This policy explains what we collect, why, and how you can control it.</p>
-      <h2>1. Data we process</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 40px;">Effective date: <span id="pp-date"></span></p>
+      
+      <p>Redge is built with privacy as a core principle. This policy explains what we collect, how we use it, and the control you have over your data.</p>
+      
+      <h2>1. Data Collection</h2>
       <ul>
-        <li><strong>On‑device telemetry</strong> (e.g., RPM, speed, temperatures, derived scores). Stored locally by default.</li>
-        <li><strong>App diagnostics</strong> (crash logs, basic analytics) to improve stability. You can opt out where supported.</li>
-        <li><strong>Contact</strong> (email) when you join the waitlist or contact us.</li>
+        <li><strong>Vehicle telemetry:</strong> OBD-II data including RPM, speed, temperature, and fuel consumption. Stored locally on your device by default.</li>
+        <li><strong>App analytics:</strong> Basic usage patterns and crash reports to improve app performance. You can opt out in settings.</li>
+        <li><strong>Account information:</strong> Email address when you join our waitlist or create an account.</li>
       </ul>
-      <h2>2. How we use data</h2>
+      
+      <h2>2. How We Use Your Data</h2>
       <ul>
-        <li>Provide real‑time and post‑session insights.</li>
-        <li>Maintain app reliability and security.</li>
-        <li>Communicate updates you opt into.</li>
+        <li>Provide real-time telemetry and post-session insights</li>
+        <li>Generate personalized coaching recommendations</li>
+        <li>Improve app stability and performance</li>
+        <li>Send product updates (only if you opt in)</li>
       </ul>
-      <h2>3. Sharing</h2>
-      <p>We do not sell your data. We may share minimal data with processors that help us run the app (e.g., crash reporting), under strict agreements.</p>
-      <h2>4. Your choices</h2>
+      
+      <h2>3. Data Sharing</h2>
+      <p>We do not sell, rent, or share your personal data with third parties for marketing purposes. We may share minimal technical data with service providers that help us maintain the app, under strict privacy agreements.</p>
+      
+      <h2>4. Your Rights</h2>
       <ul>
-        <li>Export and delete your sessions at any time from the app.</li>
-        <li>Opt out of diagnostics where supported by your OS.</li>
-        <li>Contact us at <a href="mailto:privacy@tryredge.com">privacy@tryredge.com</a> for any request.</li>
+        <li>Export all your driving data in standard formats</li>
+        <li>Delete your account and all associated data</li>
+        <li>Opt out of analytics and crash reporting</li>
+        <li>Request data corrections or clarifications</li>
       </ul>
-      <h2>5. Retention</h2>
-      <p>We retain contact emails until you unsubscribe and diagnostics per platform defaults (typically 90 days).</p>
-      <h2>6. Children</h2>
-      <p>Redge is not directed to children under 16.</p>
-      <h2>7. Changes</h2>
-      <p>We will update this policy as the product evolves. We'll change the effective date above and, when material, notify you.</p>
-    </div>
-  </section>
-
-  <!-- TERMS PAGE -->
-  <section id="termsPage" class="container page" aria-labelledby="terms-h">
-    <div class="prose">
-      <h1 id="terms-h">Terms of Service</h1>
-      <p class="muted">Last updated: <span id="tos-date"></span></p>
-      <h2>1. Agreement</h2>
-      <p>By using Redge, you agree to these Terms and to our Privacy Policy.</p>
-      <h2>2. Beta access</h2>
-      <p>During TestFlight/early access, features may change or be unavailable. We provide the service “as is”, without warranties.</p>
-      <h2>3. Safety</h2>
-      <p>Do not interact with the app while driving or riding. You are solely responsible for safe operation of your vehicle.</p>
-      <h2>4. Licenses & Ownership</h2>
-      <p>Redge retains all rights to the app, content, and trademarks. You receive a limited, non‑transferable license to use the app.</p>
-      <h2>5. Acceptable use</h2>
-      <ul>
-        <li>No reverse‑engineering or unauthorized access.</li>
-        <li>No misuse that could harm the app or other users.</li>
-      </ul>
-      <h2>6. Liability</h2>
-      <p>To the maximum extent permitted by law, Redge is not liable for indirect or consequential damages.</p>
-      <h2>7. Termination</h2>
-      <p>We may suspend or terminate access for violations of these Terms.</p>
-      <h2>8. Contact</h2>
-      <p>Questions? <a href="mailto:hello@tryredge.com">hello@tryredge.com</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container row">
-      <div>© <span id="year"></span> Redge. All rights reserved.</div>
-      <div>
-        <a href="#privacy">Privacy</a> · <a href="#terms">Terms</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('open');
-    }
-    function closeMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.remove('open');
-    }
-    document.addEventListener('click', function(e) {
-      const menu = document.getElementById('mobileMenu');
-      const btn = document.querySelector('.mobile-menu-btn');
-      if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.remove('open');
-      }
-    });
-
-    // Smooth scroll for in‑page anchors (when on the home page view)
-    function smoothScrollTo(id){
-      const el = document.getElementById(id);
-      if (!el) return;
-      const headerHeight = document.querySelector('header').offsetHeight;
-      const elementPosition = el.offsetTop - headerHeight - 20;
-      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
-    }
-
-    // Waitlist mailto handler
-    function handleJoin(e) {
-      e.preventDefault();
-      const form = e.target;
-      const button = form.querySelector('button[type="submit"]');
-      const email = form.email.value.trim();
-      const thanksEl = document.getElementById('thanks');
-      const errorEl = document.getElementById('error');
-      thanksEl.style.display = 'none';
-      errorEl.style.display = 'none';
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) { errorEl.textContent = 'Please enter a valid email address.'; errorEl.style.display = 'block'; return false; }
-      button.classList.add('loading'); button.textContent = 'Sending...';
-      try {
-        const subject = encodeURIComponent('Redge Waitlist');
-        const lines = [ `Email: ${email}`, `From: ${location.href}`, `Timestamp: ${new Date().toISOString()}`, '— Add me to TestFlight / early access.' ];
-        const body = encodeURIComponent(lines.join('\n'));
-        setTimeout(() => {
-          window.location.href = `mailto:hello@tryredge.com?subject=${subject}&body=${body}`;
-          form.reset(); button.classList.remove('loading'); button.textContent = 'Request access'; thanksEl.style.display = 'block';
-        }, 400);
-      } catch (err) {
-        console.error(err); button.classList.remove('loading'); button.textContent = 'Request access'; errorEl.textContent = 'Something went wrong. Please try again.'; errorEl.style.display = 'block';
-      }
-      return false;
-    }
-
-    // Simple hash router for pages (home sections vs privacy/terms)
-    const pages = {
-      home: document.querySelector('main#home'),
-      app: document.getElementById('app'),
-      faq: document.getElementById('faq'),
-      waitlist: document.getElementById('waitlist'),
-      privacy: document.getElementById('privacyPage'),
-      terms: document.getElementById('termsPage')
-    };
-
-    function setActivePage(target){
-      // Hide all page sections
-      pages.privacy.classList.remove('active');
-      pages.terms.classList.remove('active');
-      // Show or hide home sections
-      const showHome = (target === 'home' || target === 'app' || target === 'faq' || target === 'waitlist');
-      pages.home.style.display = showHome ? 'block' : 'none';
-      document.getElementById('app').style.display = showHome ? 'block' : 'none';
-      document.getElementById('faq').style.display = showHome ? 'block' : 'none';
-      document.getElementById('waitlist').style.display = showHome ? 'block' : 'none';
-
-      // Activate routed pages
-      if (target === 'privacy') pages.privacy.classList.add('active');
-      if (target === 'terms') pages.terms.classList.add('active');
-
-      // Scroll to top for routed pages
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-
-    function route(){
-      const hash = location.hash.replace('#','') || 'home';
-      const known = ['home','app','faq','waitlist','privacy','terms'];
-      const target = known.includes(hash) ? hash : 'home';
-      setActivePage(target);
-      closeMobileMenu();
-      // If navigating to an in‑home anchor (app/faq/waitlist), smooth scroll
-      if (['app','faq','waitlist'].includes(target)) {
-        setTimeout(()=>smoothScrollTo(target), 0);
-      }
-    }
-
-    window.addEventListener('hashchange', route);
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('year').textContent = new Date().getFullYear();
-      document.getElementById('pp-date').textContent = new Date().toISOString().slice(0,10);
-      document.getElementById('tos-date').textContent = new Date().toISOString().slice(0,10);
-      route();
-    });
-  </script>
-</body>
-</html>
+      
+      <h2>5. Data Retention</h2>
+      <p>Driving sessions are stored locally until you delete them. Email addresses are kept until you unsubscribe. Analytics data is retained for up to 90 days.</p>
+      
+      <h2>6. Children's Privacy</h2>
+      <p>Redge is not intended for users under 16 years old. We do not knowingly collect data from children.</p>
+      
+      <h2>7. Updates</h2>
+      <p>We may update this policy as our product evolves. We'll notify users of material changes and update the effective date above.</p>
