@@ -66,7 +66,13 @@
     .feature h3{margin:0;font-size:24px}
     .mock{border:1px solid #2a3b68;border-radius:18px;background:linear-gradient(135deg, rgba(13,99,255,.12), rgba(90,177,255,.06));height:420px;display:grid;place-items:center;position:relative;overflow:hidden}
     .mock:before{content:"";position:absolute;inset:0;background-image:linear-gradient(transparent 0 70%, rgba(13,99,255,.08)), repeating-linear-gradient( to bottom, rgba(255,255,255,.04), rgba(255,255,255,.04) 1px, transparent 1px, transparent 24px );opacity:.7}
-    .mock .phone-mini{width:260px;aspect-ratio:9/19;border-radius:22px;border:1px solid #2b4aa8;background:linear-gradient(160deg,#0b1630,#0c1422);box-shadow:0 10px 30px rgba(13,99,255,.24);display:flex;align-items:center;justify-content:center}
+    $1
+
+    /* Ensure inserted screenshots scale nicely */
+    .mock img{ display:block; width:100%; height:100%; object-fit:contain; border-radius:18px; }
+    /* Cap the mock box responsively so large PNGs don't blow up the layout */
+    .mock{ height: clamp(280px, 42vw, 420px); }
+
 
     /* FAQ */
     .faq{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
@@ -206,16 +212,17 @@
             <li>Aliquet magna nec dignissim velit nibh.</li>
           </ul>
         </div>
-<div class="mock" aria-label="App screenshot placeholder (right)">
+        <div class="mock" aria-label="App screenshot (right)">
   <img class="shot" src="foto1.png" alt="Telemetry screen">
 </div>
       </article>
 
       <!-- 2) Screenshot LEFT, copy RIGHT -->
       <article class="feature">
-<div class="mock" aria-label="App screenshot placeholder (right)">
+        <div class="mock" aria-label="App screenshot (right)">
   <img class="shot" src="foto1.png" alt="Telemetry screen">
 </div>
+
         <div class="copy">
           <h3>Post‑Session Coaching</h3>
           <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, tortor non hendrerit laoreet, libero nibh luctus libero, a ultrices arcu arcu id lorem. Etiam consequat sem ut ante efficitur tristique. Donec quis erat lectus. Sed lacinia tristique viverra.</p>
@@ -238,7 +245,7 @@
             <li>Integer iaculis urna sed lorem facilisis.</li>
           </ul>
         </div>
-<div class="mock" aria-label="App screenshot placeholder (right)">
+        <div class="mock" aria-label="App screenshot (right)">
   <img class="shot" src="foto1.png" alt="Telemetry screen">
 </div>
       </article>
